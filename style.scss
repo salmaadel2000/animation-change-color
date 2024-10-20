@@ -1,0 +1,50 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #eee;
+}
+
+// fill="#6c63ff"
+
+.box {
+  fill: #d8d8d8;
+  transform: translateY(40px);
+  animation: move 1s ease-in-out forwards;
+  opacity: 0;
+  @for $i from 1 through 5 {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * 0.5s;
+    }
+  }
+}
+
+@keyframes move {
+  30% {
+    opacity: 1;
+    fill: #d8d8d8;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    fill: #6c63ff;
+  }
+}
+
+.boxs {
+  transform-origin: center;
+  transform-box: fill-box;
+  transform: scale(1) translateY(36px);
+  animation: scale 1s 3s ease-in-out forwards;
+}
+
+@keyframes scale {
+  0%,
+  100% {
+    transform: scale(1) translateY(36px);
+  }
+  50% {
+    transform: scale(1.1) translateY(36px);
+  }
+}
